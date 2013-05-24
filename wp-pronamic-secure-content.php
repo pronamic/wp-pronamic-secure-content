@@ -87,7 +87,7 @@ if ( ! class_exists( 'WP_Pronamic_Secure_Content' ) ) :
 		 */
 		public function autoload( $class_name ) {
 			// Replace the invalid characters
-			$class_name = str_replace( '_', '\\', strtolower( $class_name ) );
+			$class_name = str_replace( '_', DIRECTORY_SEPARATOR, $class_name );
 			
 			// Build the file location
 			$file = $this->plugin_path() . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . $class_name . '.php';
@@ -96,14 +96,6 @@ if ( ! class_exists( 'WP_Pronamic_Secure_Content' ) ) :
 			if ( file_exists( $file ) ) {
 					include_once( $file );
 			}
-		}
-		
-		public function install() {
-			
-		}
-		
-		public function update() {
-			
 		}
 		
 		/**
